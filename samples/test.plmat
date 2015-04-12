@@ -1,0 +1,18 @@
+Customer ID|First Name          |Last Name  |email                          ; all rows above a line of pure hyphens (-) are treated as th
+--------------------------------------------------------------------------  ; Content after a semi-colon on any line should be ignored
+0001       |William Anderson ::c2           |thewilliamanderson@gmail.com   ; ::arguments passes arguments to the cell, c[int] indicates colspan
+0002   ::r2|John                |Doe        |johndoe@example.com            ; the r[int] argument indicates row span
+        ::X|Scrooge             |McDuck     |scrooge@moneybin.net           ; the "X" argument means that the cell should not be rendered (aka, its a placeholder)
+0003       |William  ::.class#id|Anderson   |thewilliamanderson@gmail.com   ; haml syntax style for class and id appends
+Multiple commands can be given after each with or without spaces
+  lines starting with a tab are concatenated to the previous line with
+  a space between them
+  ::c4&.legal &r2                                                           ; Multiple arguments can be passed with the &, and spaces are removed from the argument block
+; Any line that starts with a semi-colon should be ignored                  ; trailing white space should also be removed
+0004
+  | Donald
+  | Duck
+  | donald.duck@gonavy.gov ::.blue
+
+; a blank line denotes a new table
+just one cell here
