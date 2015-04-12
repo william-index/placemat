@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/william-index/placemat/badges/gpa.svg)](https://codeclimate.com/github/william-index/placemat)
+[![Gem Version](https://badge.fury.io/rb/placemat.svg)](http://badge.fury.io/rb/placemat)
 # Placemat
 
 Placemat is a robust (maybe?) pre-processing language exclusively for HTML tables. This current version is 100% useless, this is just document setup to get things into version control with git, setup a huboard, and so forge
