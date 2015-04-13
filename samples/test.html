@@ -1,9 +1,23 @@
-Customer ID|First Name          |Last Name  |email                          
+<table>
+	<tr> <th>A</th><th>B</th><th>C</th> </tr>
 
-0001       |William Anderson ::c2           |thewilliamanderson@gmail.com   
-0002   ::r2|John                |Doe        |johndoe@example.com            
--       ::X|Scrooge             |McDuck     |scrooge@moneybin.net           
-0003       |William  ::.class#id|Anderson   |thewilliamanderson@gmail.com   
-Multiple commands can be given after each with or without spaces lines starting with a tab are concatenated to the previous line with a space between them ::c4&.legal &r2                                                           
-0004 | Donald | Duck | donald.duck@gonavy.gov ::.blue
-just one cell here
+	<tr> <td>1</td><td>2</td><td>3</td> </tr>
+	<tr> <td>4</td><td>5</td><td>6</td> </tr>
+	<tr> <td>7</td><td>8</td><td>9</td> </tr>
+</table>
+
+<table>
+	<tr> <td>just one cell here</td> </tr>
+</table>
+
+<table>
+	<tr> <th>Customer ID</th><th>First Name</th><th>Last Name</th><th>email                          ; all rows above a line of pure hyphens (-) are treated as th</th> </tr>
+
+	<tr> <td>0001</td><td>William Anderson </td><td>thewilliamanderson@gmail.com</td> </tr>
+	<tr> <td>0002   </td><td>John</td><td>Doe</td><td>johndoe@example.com</td> </tr>
+	<tr> <td>Scrooge</td><td>McDuck</td><td>scrooge@moneybin.net</td> </tr>
+	<tr> <td>0003</td><td>William  </td><td>Anderson</td><td>thewilliamanderson@gmail.com</td> </tr>
+	<tr> <td>Multiple commands can be given after each with or without spaces lines starting with a tab are concatenated to the previous line with a space between them </td> </tr>
+	<tr> <td>0004</td><td>Donald</td><td>Duck</td><td>donald.duck@gonavy.gov </td> </tr>
+</table>
+
