@@ -1,8 +1,9 @@
 Customer ID|First Name          |Last Name  |email                          ; all rows above a line of pure hyphens (-) are treated as th
---------------------------------------------------------------------------  ; Content after a semi-colon on any line should be ignored
+--------------------------------------------------------------------------
+; Content after a semi-colon on any line should be ignored
 0001       |William Anderson ::c2           |thewilliamanderson@gmail.com   ; ::arguments passes arguments to the cell, c[int] indicates colspan
 0002   ::r2|John                |Doe        |johndoe@example.com            ; the r[int] argument indicates row span
-        ::X|Scrooge             |McDuck     |scrooge@moneybin.net           ; the "X" argument means that the cell should not be rendered (aka, its a placeholder)
+-       ::X|Scrooge             |McDuck     |scrooge@moneybin.net           ; the "X" argument means that the cell should not be rendered (aka, its a placeholder)
 0003       |William  ::.class#id|Anderson   |thewilliamanderson@gmail.com   ; haml syntax style for class and id appends
 Multiple commands can be given after each with or without spaces
   lines starting with a tab are concatenated to the previous line with
