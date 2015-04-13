@@ -45,7 +45,6 @@ class PlmatToHTML_Converter
     raw_data.split(/\n\n/)
   end
 
-
   ##
   # Splits a table intro two sections for header content
   # and body content based on a line of pure hyphens
@@ -75,10 +74,10 @@ class PlmatToHTML_Converter
 
   ##
   # Strips out any lines beginning with a semi-colon
-  # from the each perceived table row
+  # from the each line fo the document
   #
   # Arguments:
-  #   lines (Array) - array of all perceived table rows
+  #   raw_table_data (Array) - raw table data from plmat file
   #
   # Returns:
   #   (Array) - input array but without child strings that started with ";"
@@ -87,10 +86,25 @@ class PlmatToHTML_Converter
     raw_table_data.each_with_index do |row, i|
       if row[0,1] == ";"
         raw_table_data.delete_at(i)
+      else
+        raw_table_data[i] = trim_same_line_comments(row)
       end
     end
     raw_table_data.join("\n")
   end
 
+  ##
+  # Removes in-line comments from end of lines
+  # Any content after a semi-colon will be removes
+  #
+  # Arguments:
+  #  row (String) - contents of a single row
+  def trim_same_line_comments(row)
+    comment_index = row.index(';')
+    if comment_index
+      row = row[0,comment_index]
+    end
+    row
+  end
 
 end
