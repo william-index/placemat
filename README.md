@@ -6,9 +6,7 @@ Placemat is a robust (maybe?) pre-processing language exclusively for HTML table
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-Or install it yourself as:
+You can install this gem:
 
     $ gem install placemat
 

@@ -1,25 +1,31 @@
-# TODO clean up all this formatting and use prooper naming conventions
-# TODO pass file name to class and then get contents
-# TODO output file should use same name as the input
-# Parse order of operations should probably be
-#   remove all comments
-#   pull up tabbed lines
-#   split apart multple tables
-#   * for each table
-#     split into rows
-#     remove trailing whitespace from
-#     split into cells
-#     * for each cell
-#       pull out arguments
-#       remove trailing spaces
-#       apply arguments
-
+##
+# The Class used for parsing and converstion of .plmat to .html
 class PlmatToHTML_Converter
+
+  ##
+  # Gets contents of a .plmat file, calls methods to
+  # parse and reformat into valid html5, and saves out
+  # the new content into a .html file
+  #
+  # Example:
+  #   >> PlmatToHTML_Converter.complile(filename.plmat)
+  #   => filename.html
+  #
+  # Arguments:
+  #   * plmat: (File)
+  #
+  # Returns:
+  #   * (.html File)
   def compile(plmat)
-    file = File.open(plmat, "rb")
-    contents = file.read
-    generator = FileGenerator.new
-    plmat = plmat.slice(0..(plmat.index('.')-1))
-    generator.output(contents, plmat+".html")
+    generator = FileHandler.new
+    plmat_string = generator.content(plmat)
+
+    # TODO parse out entire file, haha
+
+    base_file_name = plmat.slice(0..(plmat.index('.')-1))
+    generator.output(plmat_string, base_file_name+".html")
   end
+
+  private
+
 end
