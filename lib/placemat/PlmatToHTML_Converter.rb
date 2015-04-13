@@ -41,7 +41,7 @@ class PlmatToHTML_Converter
   #
   # Returns:
   #   (Array) - Array of strings of raw table data
-  def split_apart_tables(raw_data)
+  def split_apart_tables(raw_data) #:doc:
     raw_data.split(/\n\n/)
   end
 
@@ -58,7 +58,7 @@ class PlmatToHTML_Converter
   #
   # Returns:
   #   (Array) - multi-dimensional array of table header rows and body rows
-  def split_rows(raw_table_data)
+  def split_rows(raw_table_data) #:doc:
     tables_with_rows = Array.new
     raw_table_data.each_with_index do |table, i|
       table_rows = Array.new
@@ -81,7 +81,7 @@ class PlmatToHTML_Converter
   #
   # Returns:
   #   (Array) - input array but without child strings that started with ";"
-  def strip_full_line_comments(raw_table_data)
+  def strip_full_line_comments(raw_table_data) #:doc:
     raw_table_data = raw_table_data.split(/\n/)
     raw_table_data.each_with_index do |row, i|
       if row[0,1] == ";"
@@ -99,7 +99,7 @@ class PlmatToHTML_Converter
   #
   # Arguments:
   #  row (String) - contents of a single row
-  def trim_same_line_comments(row)
+  def trim_same_line_comments(row) #:doc:
     comment_index = row.index(';')
     if comment_index
       row = row[0,comment_index]
