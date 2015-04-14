@@ -1,13 +1,26 @@
-; This is a simple table, it the best that Placemat can do as of 0.1.0
+;standard table formatting
+First Name | Last Name | Email
+------------------------------------------------
+Scrooge    | McDuck    | number1dime@example.net ; Email should be @moneybin, but that was taken
+Launchpad  | McQuack   | lpad@example.org
+
+;alternative style
+First Name
+  | Last Name
+  | Email
+---
+Scrooge
+  | McDuck
+  | number1dime@example.net
+  ; Email should be @moneybin, but that was taken
+Launchpad
+  | McQuack
+  | lpad@example.org
+
+; sample of excluded cell
 A|B|C
 -----
-1|2|3 ;first row
-4|5|6
-; full line comment
-7|8|9
-
-; a blank line denotes a new table
-just one cell here
+1|this cell wont show ::X|2|3
 
 ; a hyper-complex table, this uses the full proposed Placemat spec
 Customer ID|First Name          |Last Name  |email                          ; all rows above a line of pure hyphens (-) are treated as th

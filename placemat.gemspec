@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["thewilliamanderson@gmail.com"]
 
   spec.summary       = %q{Converts placemat markdown files into html tables.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/william-index/placemat"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }

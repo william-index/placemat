@@ -2,7 +2,9 @@
 [![Gem Version](https://badge.fury.io/rb/placemat.svg)](http://badge.fury.io/rb/placemat)
 # Placemat
 
-Placemat is a robust (maybe?) pre-processing language exclusively for HTML tables. This current version is 100% useless, this is just document setup to get things into version control with git, setup a huboard, and so forge
+Placemat is a robust (maybe?) pre-processing language exclusively for HTML tables.
+
+As of V 0.1.0, Placemat can handle parsing of basic tables without attribute formatting on cells.
 
 ## Installation
 
@@ -12,7 +14,88 @@ You can install this gem:
 
 ## Usage
 
-Currently Placemat will just duplicate the .plmat file it is pointed to with the .html instruction, so... dont use it. :)
+### Running Placemat
+Placemat runs from the terminal after installation, by simply pointing to a .plmat file. It will render an html version of that file in the working directory. the
+  -c
+argument passes the file name to render.
+
+```
+cd dir
+placemat -c myfile.plmat
+```
+
+### Placemat Documents
+
+#### File Types
+Placemat is an evolving file format. In the current build it is able to handle a small subset of commands. Placemat takes in .plmat files and outputs .html
+
+In each .plmat file, multiple html tables can be rendered. Each unique table is denoted by a line in-between it and the previous
+
+```
+table
+
+table
+```
+
+Cells (tr and td) are seperated on each row using a pipe (|)
+
+```
+First Name | Last Name | Email
+Scrooge    | McDuck    | number1dime@example.net
+Launchpad  | McQuack   | lpad@example.org
+```
+
+Similar to github flavored markdown, header cells are anything in a table located above a line of (in Placemat format) pure hyphens
+
+```
+First Name | Last Name | Email
+------------------------------------------------
+Scrooge    | McDuck    | number1dime@example.net
+Launchpad  | McQuack   | lpad@example.org
+```
+
+Unlike other table formatting languages Placemat allows for comments.  
+Comments are either a full line, or in line and begin with a semi-colon (;)
+
+```
+First Name | Last Name | Email
+------------------------------------------------
+Scrooge    | McDuck    | number1dime@example.net ; Email should be @moneybin, but that was taken
+Launchpad  | McQuack   | lpad@example.org
+```
+
+As tables can get complex, Placemat supports some alternative formatting methods as well. Any line that begins with a tab counts as an extension of the previous line, so the table above can be rewritten as the following if desired:
+
+```
+First Name
+  | Last Name
+  | Email
+  ; This is the header row
+---
+Scrooge
+  | McDuck
+  | number1dime@example.net
+  ; Email should be @moneybin, but that was taken
+Launchpad  
+  | McQuack
+  | lpad@example.org
+```
+
+These styles can be mixed within the same file or even table if desired
+
+#### Cell Arguments
+Each cell can take a number of arguments as well. An argument block in Placemat begins with a double colon (::), multiple arguments are separated with an ampersand (&).
+
+**X**
+The X argument denotes a cell that should not render, this is used primarily for formatting and will be more useful when colspan and rowspan are incorporated
+
+```
+A|B|C
+-----
+1|this cell wont show ::X|2|3
+
+```
+
 
 ## Development
 

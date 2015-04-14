@@ -6,7 +6,7 @@ OptionParser.new do |opts|
     plmat_parser.compile(plmat)
   end
   opts.on('--version', 'Display the version') do
-    puts "0.0.0"
+    puts "0.1.0"
     exit
   end
   opts.on('-h', '--help', 'Display this help') do
