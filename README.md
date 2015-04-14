@@ -86,7 +86,7 @@ These styles can be mixed within the same file or even table if desired
 #### Cell Arguments
 Each cell can take a number of arguments as well. An argument block in Placemat begins with a double colon (::), multiple arguments are separated with an ampersand (&).
 
-**X**
+**X**  
 The X argument denotes a cell that should not render, this is used primarily for formatting and will be more useful when colspan and rowspan are incorporated
 
 ```
@@ -95,6 +95,9 @@ A|B|C
 1|this cell wont show ::X|2|3
 
 ```
+
+#### Samples
+The /samples directory of this repo contains robust examples of creating tables with Placemat, including a table of the fully proposed formatting options for 1.0.0
 
 
 ## Development

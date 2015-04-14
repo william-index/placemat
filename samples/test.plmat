@@ -22,7 +22,7 @@ A|B|C
 -----
 1|this cell wont show ::X|2|3
 
-; a hyper-complex table, this uses the full proposed Placemat spec
+; a hyper-complex table, this uses the full proposed Placemat 1.0.0 spec
 Customer ID|First Name          |Last Name  |email                          ; all rows above a line of pure hyphens (-) are treated as th
 --------------------------------------------------------------------------
 0001       |William Anderson ::c2           |thewilliamanderson@gmail.com   ; ::arguments passes arguments to the cell, c[int] indicates colspan
