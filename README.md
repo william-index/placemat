@@ -4,13 +4,15 @@
 
 Placemat is a robust (maybe?) pre-processing language exclusively for HTML tables.
 
-As of V 0.1.0, Placemat can handle parsing of basic tables without attribute formatting on cells.
+As of V 0.2.0, Placemat can handle parsing of basic tables as well as colspan and row span. For future/planned updates see tickets marked with the "0 - TODO" tag.
 
 ## Installation
 
 You can install this gem:
 
     $ gem install placemat
+
+If you have issues run the above code with "sudo"
 
 ## Usage
 
@@ -95,6 +97,21 @@ A|B|C
 1|this cell wont show ::X|2|3
 
 ```
+
+**c[int] and r[int]**
+The c and r arguments are used to specify colspan and rowspan respectively. For these, each is followed by an integer that indicates the value. If no intereger is given the value defaults to one (1).
+
+```
+|Name   ::c2
+ID  |First |Last
+-----
+001 |Scrooge|McDuck
+002 |Huey   |Duck ::r3
+003 |Dewey  |     ::X
+004 |Louie  |     ::X
+
+```
+
 
 #### Samples
 The /samples directory of this repo contains robust examples of creating tables with Placemat, including a table of the fully proposed formatting options for 1.0.0

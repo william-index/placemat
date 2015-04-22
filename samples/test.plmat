@@ -22,6 +22,16 @@ A|B|C
 -----
 1|this cell wont show ::X|2|3
 
+; sample of colspan
+|Name   ::c2
+ID  |First |Last
+-----
+001 |Scrooge|McDuck
+002 |Huey   |Duck ::r3
+003 |Dewey  |     ::X
+004 |Louie  |     ::X
+
+
 ; a hyper-complex table, this uses the full proposed Placemat 1.0.0 spec
 Customer ID|First Name          |Last Name  |email                          ; all rows above a line of pure hyphens (-) are treated as th
 --------------------------------------------------------------------------
