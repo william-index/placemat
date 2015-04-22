@@ -83,7 +83,7 @@ class PlmatToHTML_Converter
   def strip_full_line_comments(raw_table_data) #:doc:
     raw_table_data = raw_table_data.split(/\n/)
     raw_table_data.each_with_index do |row, i|
-      if row[0,1] == ";"
+      if row.first == ";"
         raw_table_data.delete_at(i)
       else
         raw_table_data[i] = trim_same_line_comments(row)
@@ -186,11 +186,59 @@ class PlmatToHTML_Converter
 
   ##
   # Builds tag attributes for a cell based on passed arguments
+  # If a value to value key code is present, it builds based on
+  #   values in the local attr_keys hash, if not if checks for
+  #   more complex intructions and passes to the appropriate method
   #
   # Arguments:
   #   args (Array) - all arguments passed from the .plmat argument block
+  #
+  # Returns:
+  #   (String) - string of formatted html attributes
   def build_cell_attrs(args) #:doc:
-    ""
+    attrs = " "
+    attr_keys = Hash["r"=>"rowspan", "c"=>"colspan"]
+
+    args.each do |arg|
+      if attr_keys.has_key?(arg.first)
+        attrs += attr_keys[arg.first] + '="' + arg[1,arg.length] + '" '
+      else
+        attrs += parse_selectors(arg)
+      end
+    end
+    attrs
+  end
+
+  ##
+  # Parses a css-like selector string of class(es) and optionally
+  #   an id (or ids? but don't do that) into their appropriate attribute strings
+  #
+  # Arguments:
+  #   sel_str (String) - selector string
+  def parse_selectors(sel_str) #:doc:
+    classes = Array.new
+    ids     = Array.new
+    attr_str= ""
+
+    sel_str = sel_str.gsub(/[\.\#]/, "." => "-.", "#" => "-#")
+    sel_str = sel_str[1,sel_str.length].split("-")
+
+    sel_str.each do |str|
+      if str.first == "."
+        classes.push(str.trim_first)
+      else
+        ids.push(str.trim_first)
+      end
+    end
+
+    if classes.length > 0
+      attr_str += 'class="' + classes.join(" ") + '" '
+    end
+    if ids.length > 0
+      attr_str += 'id="' + ids.join(" ") + '" '
+    end
+
+    attr_str
   end
 
   ##
