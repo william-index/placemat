@@ -4,7 +4,7 @@
 
 Placemat is a robust (maybe?) pre-processing language exclusively for HTML tables.
 
-As of V 0.2.0, Placemat can handle parsing of basic tables as well as colspan and row span. For future/planned updates see tickets marked with the "0 - TODO" tag.
+As of V 0.2.0, Placemat can handle parsing of basic tables as well as colspan and row span. Additionally classes and ids can be added to cell level tags. For future/planned updates see tickets marked with the "0 - TODO" tag.
 
 ## Installation
 
@@ -110,6 +110,28 @@ ID  |First |Last
 003 |Dewey  |     ::X
 004 |Louie  |     ::X
 
+```
+
+**Classes and Ids**
+An argument may also be given in the block for a cell to give it
+class attributes or an id. This is presented similar to a css selector.
+So a cell like
+```
+Hello ::.blue.underline#name_columns
+```
+would translate to  
+```
+<td class="blue underline " id="name_columns">Hello</td>
+```
+
+```
+|Name   ::c2&.blue.underline#name_columns
+ID  |First |Last
+-----
+001 |Scrooge|McDuck
+002 |Huey   |Duck ::r3&#singleId
+003 |Dewey  |     ::X
+004 |Louie  |     ::X
 ```
 
 
