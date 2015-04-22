@@ -186,11 +186,25 @@ class PlmatToHTML_Converter
 
   ##
   # Builds tag attributes for a cell based on passed arguments
+  # If a value to value key code is present, it builds based on
+  #   values in the local attr_keys hash, if not if checks for
+  #   more complex intructions and passes to the appropriate method
   #
   # Arguments:
   #   args (Array) - all arguments passed from the .plmat argument block
+  #
+  # Returns:
+  #   (String) - string of formatted html attributes
   def build_cell_attrs(args) #:doc:
-    ""
+    attrs = " "
+    attr_keys = Hash["r"=>"rowspan", "c"=>"colspan"]
+
+    args.each do |arg|
+      if attr_keys.has_key?(arg[0,1])
+        attrs += attr_keys[arg[0,1]] + '="' + arg[1,arg.length] + '" '
+      end
+    end
+    attrs
   end
 
   ##
