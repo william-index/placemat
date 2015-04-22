@@ -98,7 +98,7 @@ A|B|C
 
 ```
 
-**c[int] and r[int]**
+**c[int] and r[int]**  
 The c and r arguments are used to specify colspan and rowspan respectively. For these, each is followed by an integer that indicates the value. If no intereger is given the value defaults to one (1).
 
 ```
@@ -112,7 +112,7 @@ ID  |First |Last
 
 ```
 
-**Classes and Ids**
+**Classes and Ids**  
 An argument may also be given in the block for a cell to give it
 class attributes or an id. This is presented similar to a css selector.
 So a cell like
@@ -123,6 +123,7 @@ would translate to
 ```
 <td class="blue underline " id="name_columns">Hello</td>
 ```
+A more robust table may look like:
 
 ```
 |Name   ::c2&.blue.underline#name_columns
