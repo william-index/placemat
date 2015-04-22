@@ -32,6 +32,19 @@ class FileHandler
 
 end
 
+##
+# Extends the String open class to allow quick retrieval of the first character
+#
+# @see http://stackoverflow.com/questions/2730854/ruby-how-to-get-the-first-character-of-a-string
+class String #:nodoc:
+  def first #:nodoc:
+    self[0,1]
+  end
+  def trim_first #:nodoc:
+    self[1,self.length]
+  end
+end
+
 
 
 require "placemat/PlmatToHTML_Converter"

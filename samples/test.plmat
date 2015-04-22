@@ -23,11 +23,11 @@ A|B|C
 1|this cell wont show ::X|2|3
 
 ; sample of colspan
-|Name   ::c2
+|Name   ::c2&.blue.underline#name_columns
 ID  |First |Last
 -----
 001 |Scrooge|McDuck
-002 |Huey   |Duck ::r3
+002 |Huey   |Duck ::r3&#singleId
 003 |Dewey  |     ::X
 004 |Louie  |     ::X
 
