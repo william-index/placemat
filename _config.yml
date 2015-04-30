@@ -1,0 +1,12 @@
+# Site settings
+title: Placemat
+email: thewilliamanderson@gmail.com
+description: A markup language made just for html titles.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://williamanderson.io" # the base hostname & protocol for your site
+twitter_username: thewaanderson
+github_username:  william-index
+
+# Build settings
+markdown: kramdown
+permalink: none
