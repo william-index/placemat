@@ -1,15 +1,21 @@
-<nav class="side_bar">
-  <a class="page" href="{{ "/index.html" | prepend: site.baseurl }}">About</a>
-  <a class="page" href="{{ "/installation.html" | prepend: site.baseurl }}">Installation</a>
-  <a class="page" href="{{ "/usage.html" | prepend: site.baseurl }}">Usage</a>
+<nav class="sidebar" ng-controller="SideBar">
+  <!-- Core links -->
+  <section class="core">
+    <a class="page" href="{{ "/index.html" | prepend: site.baseurl }}">About</a>
+    <a class="page" href="{{ "/installation.html" | prepend: site.baseurl }}">Installation</a>
+    <a class="page" href="{{ "/usage.html" | prepend: site.baseurl }}">Usage</a>
 
-  <div class="hr"></div>
+    <div class="hr"></div>
 
-  {% for post in site.posts %}
-    <h2>{{ post.title }}</h2>
-    {% for sub in post.subs %}
-      <a class="post" href="{{ post.url | prepend: site.baseurl }}#{{ sub | downcase | replace:' ','_' }}">{{ sub }}</a>
+    {% for post in site.posts %}
+      <h2>{{ post.title }}</h2>
+      {% for sub in post.subs %}
+        <a class="post" href="{{ post.url | prepend: site.baseurl }}#{{ sub | downcase | replace:' ','_' }}">{{ sub }}</a>
+      {% endfor %}
     {% endfor %}
-  {% endfor %}
+  </section>
+
+  <!-- Dropdown for thin views -->
+  <select name="select" ng-model="select.type" ng-options="i.id as i.name for i in items" ng-change="update(select.type)"></select>
 
 </nav>

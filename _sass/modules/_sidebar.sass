@@ -1,0 +1,66 @@
+/*********************/
+// Standard shared style fo all text elements in sidebar
+%sidebar_text
+  +block(100%, 30px)
+  +font(14, 30)
+  font-family: $sans
+  text-indent: 20px
+
+/*********************/
+// Core Sidebar styling and text variables (default to mobile sizing)
+nav.sidebar
+  background: $lightGrey
+  width: 100%
+  height: 64px
+
+  h2
+    @extend %sidebar_text
+    color: $amethyst
+    margin-top: 20px
+    font-weight: $semi
+
+  a
+    @extend %sidebar_text
+    color: black
+
+  a.post
+    color: $purpleGrey
+
+  a:hover
+    background: $lilac
+    color: $darkPurple
+
+  .hr
+    +block(100%, 2px)
+    background: $mediumGrey
+    margin: 15px 0px
+
+// hides core links on mobile view
+nav.sidebar .core
+  display: none
+
+// styling for dropdown
+nav.sidebar select
+  +block(80vw, 38px)
+  float: left
+  margin: 13px 10vw 0px 10vw
+  background: url(images/icons/down_arrow.svg) white no-repeat calc(100% - 10px) center
+  background-size: 20px
+  padding-left: 20px
+  border-radius: 0px
+  appearance: none
+  -webkit-appearance: none
+  -moz-appearance: none
+  cursor: pointer
+
+/*********************/
+// switch between displays for responsive
++mq(m)
+  nav.sidebar
+    height: auto
+    width: 200px
+
+  nav.sidebar select
+    display: none
+  nav.sidebar .core
+    display: block
