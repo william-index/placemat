@@ -14,6 +14,7 @@
       {% endfor %}
     {% endfor %}
   </section>
+  <div class="clear"></div>
 
   <!-- Dropdown for thin views -->
   <select name="select" ng-model="select.type" ng-options="i.id as i.name for i in items" ng-change="update(select.type)"></select>

@@ -3,13 +3,13 @@
 
   {% include head.html %}
 
-  <body ng-app="PlacematApp">
+  <body ng-app="PlacematApp" class="body--{{ page.title | downcase | replace:' ','_' }}">
 
     {% include header.html %}
 
     {% include side_bar.html %}
 
-    <article>
+    <article class="page_content">
       {{ content }}
     </article>
 
