@@ -1,8 +1,55 @@
 .page_header
-  +block(100%,$header_height)
+  +block(100%,$header_height - 6px)
+  padding-top: 6px
   background: $purple
   transition: all $fast
+  position: relative
 
+h1.page_header__logo
+  +block(160px, 34px)
+  background: url(images/horizontal_logo.svg) no-repeat center center
+  margin: 0px auto
+  overflow: hidden
+  text-indent: -9999px
+
+h2.page_header__tagline
+  display: none
+
+/******************************************
+/* Adjusted breakpoint that allows tagline
+    to show earlier on screen sizes
++mq(ms)
+  h1.page_header__logo
+    float: left
+    margin-left: 10vw
+
+  h2.page_header__tagline
+    display: block
+    color: white
+    +font(16, ($header_height / 1px) - 2)
+    font-family: $sans
+    font-weight: $light
+    font-style: italic
+    position: absolute
+    top: 0px
+    right: 10vw
+
+/******************************************
+/* Standard breakpoint for larger screens
+    this only adjusts on the landing page
 +mq(m)
   .page_header--about
     height: $open_header_height
+
+    h1.page_header__logo
+      +block(260px, 150px)
+      background-image: url(images/sticker_logo.svg)
+      float: none
+      margin: 25px auto 0px
+
+    h2.page_header__tagline
+      +block(100%, 40px)
+      position: static
+      text-align: center
+      +font(20, 40)
+      margin-top: 15px
