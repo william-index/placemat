@@ -2,10 +2,54 @@ footer.site_footer
   +block(100%, auto)
   float: left
   background: $darkGrey
+  padding: 25px 0px 0px
 
 nav.site_footer__contribute
   +block(100%, auto)
-  a
+  text-align: center
+
+.site_footer__contribute__title
+  color: white
+  +font(14, 16)
+  font-family: $sans
+
+.site_footer__contribute__link
+  +block(30px, 35px)
+  margin: 12px auto
+  path
+    fill: $darkPurple
+  &:hover
+    path
+      fill: $amethyst
 
 p.site_footer__copyright
   +block(100%, 35px)
+  +font(14, 35)
+  font-family: $sans
+  text-align: center
+  background: $mediumGrey
+  color: $amethyst
+
+
+/**********************************
+// Large screen styling
++mq(m)
+  nav.site_footer__contribute
+    text-align: right
+
+  .site_footer__contribute__link,
+  .site_footer__contribute__title
+    display: inline-block
+    float: right
+    clear: both
+    margin-right: 10vw
+
+  .site_footer__contribute__link
+    margin-top: -20px
+
+  .site_footer__contribute__title
+    padding-right: 40px
+
+  p.site_footer__copyright
+    text-align: left
+    text-indent: 10vw
