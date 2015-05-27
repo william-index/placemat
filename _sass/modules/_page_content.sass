@@ -1,10 +1,47 @@
+// Styling for content well
 .page_content
+  box-sizing: border-box
   width: auto
   padding: 10vw
+  h1
+    font-family: $sans
+    font-weight: $light
+    color: $amethyst
+    padding: 0px 0px 0.4em 0px
+  p
+    font-family: $sans
+    font-size: 1em
+    line-height: 1.6em
+    padding: 0.6em 0px
+    color: $darkestGrey
+
+  div.highlight
+    box-sizing: border-box
+    overflow: scroll
+    padding: 1em
+    margin: 1em 0px
+
+  .table_wrap
+    width: 100%
+    overflow: scroll
+    padding: 1em 0px
+  table
+    border-collapse: collapse
+    width: 100%
+  th
+    background: lighten($purple, 60%)
+  th, td
+    border: 1px solid $purple
+    padding: 0.6em
+    font-family: $sans
+    font-size: 0.9em
+    &.gold
+      background: gold
 
 +mq(m)
   .page_content
     float: left
-    width: map-get($breaks, m) - 280
+    width: calc(100vw - 300px)
+    max-width: 650px
     padding: 50px 0px
     margin-left: 50px
