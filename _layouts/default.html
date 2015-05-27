@@ -7,11 +7,14 @@
 
     {% include header.html %}
 
-    {% include side_bar.html %}
+    <div class="content_wrap">
+      {% include side_bar.html %}
 
-    <article class="page_content">
-      {{ content }}
-    </article>
+      <article class="page_content">
+        {{ content }}
+      </article>
+      <div class="clear"></div>
+    </div>
 
     {% include footer.html %}
 

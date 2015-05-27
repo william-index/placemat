@@ -57,10 +57,10 @@ nav.sidebar select
 // switch between displays for responsive
 +mq(m)
   nav.sidebar
-    height: auto
-    min-height: calc(100vh - 200px)
-    width: 200px
+    position: absolute
+    +block(200px, 100%)
     float: left
+    box-sizing: border-box
     margin: 0px
     padding: 20px 0px
 
