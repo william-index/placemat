@@ -8,3 +8,6 @@
 /spec/reports/
 /tmp/
 doc/
+_site/
+**/.sass-cache
+**/.sass-cache/*
