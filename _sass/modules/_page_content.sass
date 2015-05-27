@@ -15,7 +15,7 @@
     font-size: 1.4em
     font-weight: $normal
     margin-bottom: -0.5em
-
+    margin-top: 20px
   h3
     @extend h2
     color: black
@@ -64,6 +64,11 @@
     font-size: 0.9em
     &.gold
       background: gold
+    &.underline
+      text-decoration: underline
+    &.blue
+      background: lighten(blue, 20%)
+      color: white
 
 +mq(m)
   .page_content
