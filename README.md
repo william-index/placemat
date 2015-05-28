@@ -4,7 +4,6 @@
 
 Placemat is a robust (maybe?) pre-processing language exclusively for HTML tables.
 
-As of V 0.2.0, Placemat can handle parsing of basic tables as well as colspan and row span. Additionally classes and ids can be added to cell level tags. For future/planned updates see tickets marked with the "0 - TODO" tag.
 
 ## Installation
 
@@ -16,124 +15,9 @@ If you have issues run the above code with "sudo"
 
 ## Usage
 
-### Running Placemat
-Placemat runs from the terminal after installation, by simply pointing to a .plmat file. It will render an html version of that file in the working directory. the
-  -c
-argument passes the file name to render.
+You can learn all about how to use placemat by reading:
+[Placemat Documentation](http://william-index.github.io/placemat/index.html)
 
-```
-cd dir
-placemat -c myfile.plmat
-```
-
-### Placemat Documents
-
-#### File Types
-Placemat is an evolving file format. In the current build it is able to handle a small subset of commands. Placemat takes in .plmat files and outputs .html
-
-In each .plmat file, multiple html tables can be rendered. Each unique table is denoted by a line in-between it and the previous
-
-```
-table
-
-table
-```
-
-Cells (tr and td) are seperated on each row using a pipe (|)
-
-```
-First Name | Last Name | Email
-Scrooge    | McDuck    | number1dime@example.net
-Launchpad  | McQuack   | lpad@example.org
-```
-
-Similar to github flavored markdown, header cells are anything in a table located above a line of (in Placemat format) pure hyphens
-
-```
-First Name | Last Name | Email
-------------------------------------------------
-Scrooge    | McDuck    | number1dime@example.net
-Launchpad  | McQuack   | lpad@example.org
-```
-
-Unlike other table formatting languages Placemat allows for comments.  
-Comments are either a full line, or in line and begin with a semi-colon (;)
-
-```
-First Name | Last Name | Email
-------------------------------------------------
-Scrooge    | McDuck    | number1dime@example.net ; Email should be @moneybin, but that was taken
-Launchpad  | McQuack   | lpad@example.org
-```
-
-As tables can get complex, Placemat supports some alternative formatting methods as well. Any line that begins with a tab counts as an extension of the previous line, so the table above can be rewritten as the following if desired:
-
-```
-First Name
-  | Last Name
-  | Email
-  ; This is the header row
----
-Scrooge
-  | McDuck
-  | number1dime@example.net
-  ; Email should be @moneybin, but that was taken
-Launchpad  
-  | McQuack
-  | lpad@example.org
-```
-
-These styles can be mixed within the same file or even table if desired
-
-#### Cell Arguments
-Each cell can take a number of arguments as well. An argument block in Placemat begins with a double colon (::), multiple arguments are separated with an ampersand (&).
-
-**X**  
-The X argument denotes a cell that should not render, this is used primarily for formatting and will be more useful when colspan and rowspan are incorporated
-
-```
-A|B|C
------
-1|this cell wont show ::X|2|3
-
-```
-
-**c[int] and r[int]**  
-The c and r arguments are used to specify colspan and rowspan respectively. For these, each is followed by an integer that indicates the value. If no intereger is given the value defaults to one (1).
-
-```
-|Name   ::c2
-ID  |First |Last
------
-001 |Scrooge|McDuck
-002 |Huey   |Duck ::r3
-003 |Dewey  |     ::X
-004 |Louie  |     ::X
-
-```
-
-**Classes and Ids**  
-An argument may also be given in the block for a cell to give it
-class attributes or an id. This is presented similar to a css selector.
-So a cell like
-```
-Hello ::.blue.underline#name_columns
-```
-would translate to  
-```
-<td class="blue underline " id="name_columns">Hello</td>
-```
-A more robust table may look like:
-
-```
-|Name   ::c2&.blue.underline#name_columns
-ID  |First |Last
------
-001 |Scrooge|McDuck
-002 |Huey   |Duck ::r3&#singleId
-003 |Dewey  |     ::X
-004 |Louie  |     ::X
-```
 
 
 #### Samples
