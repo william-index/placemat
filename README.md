@@ -1,5 +1,7 @@
 [![Code Climate](https://codeclimate.com/github/william-index/placemat/badges/gpa.svg)](https://codeclimate.com/github/william-index/placemat)
 [![Gem Version](https://badge.fury.io/rb/placemat.svg)](http://badge.fury.io/rb/placemat)
+[![Inline docs](http://inch-ci.org/github/william-index/placemat.svg?branch=master)](http://inch-ci.org/github/william-index/placemat)
+
 # Placemat
 
 Placemat is a robust (maybe?) pre-processing language exclusively for HTML tables.
